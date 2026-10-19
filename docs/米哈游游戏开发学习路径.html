@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>游戏开发四年学习路径 · 米哈游定向优化版</title>
+<style>
+  @page { size: A4; margin: 15mm 14mm; }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: "Microsoft YaHei", "PingFang SC", "Source Han Sans SC", sans-serif;
+    color: #22303d; line-height: 1.7; font-size: 12.5px;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  h1 { font-size: 22px; color: #0b2545; text-align: center; margin: 0 0 4px 0; letter-spacing: .5px; }
+  .subtitle { text-align: center; color: #5b7085; font-size: 11.5px; margin: 0 0 6px 0; letter-spacing: 1px; }
+  .rule { height: 4px; background: linear-gradient(90deg,#0b2545,#2e6db4,#0b2545); border-radius: 2px; margin: 0 0 16px 0; }
+  h2 { font-size: 15px; color: #0b2545; border-left: 4px solid #2e6db4; padding-left: 9px; margin: 20px 0 8px 0; page-break-after: avoid; }
+  h3 { font-size: 13px; color: #16436e; margin: 12px 0 4px 0; page-break-after: avoid; }
+  p { margin: 5px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 11.5px; }
+  th, td { border: 1px solid #d4dde6; padding: 6px 8px; text-align: left; vertical-align: top; }
+  th { background: #0b2545; color: #fff; font-weight: 600; white-space: nowrap; }
+  tr:nth-child(even) td { background: #f4f7fa; }
+  .lead { margin: 10px 0; padding: 10px 14px; background: #eef4fb; border-left: 4px solid #2e6db4; border-radius: 0 6px 6px 0; }
+  .warn { margin: 10px 0; padding: 10px 14px; background: #fff6e6; border-left: 4px solid #e8a33d; border-radius: 0 6px 6px 0; }
+  .key { margin: 12px 0; padding: 12px 16px; background: #0b2545; color: #fff; border-radius: 8px; }
+  .key strong { color: #ffd166; }
+  .tag { display: inline-block; background: #2e6db4; color: #fff; border-radius: 3px; padding: 0 5px; font-size: 10.5px; margin-right: 4px; }
+  .tag-new { background: #d9534f; }
+  .tag-keep { background: #4a8f5b; }
+  ul { margin: 4px 0; padding-left: 18px; }
+  li { margin: 2px 0; }
+  .foot { text-align: center; color: #7c8b99; font-size: 10.5px; margin-top: 18px; }
+  .small { font-size: 11px; color: #5b7085; }
+</style>
+</head>
+<body>
+
+<h1>游戏开发四年学习路径</h1>
+<div class="subtitle">米哈游（miHoYo）定向优化版 · 大一 → 大四</div>
+<div class="rule"></div>
+
+<h2>零、先回答最关键的问题：必须学 C++ 吗？</h2>
+
+<div class="lead">
+  <b>结论：C# 是主力武器，C++ 是必修功底。</b>两者都要，但角色不同——不要把 C++ 当成主攻方向，也不要以为会 C# 就够了。
+</div>
+
+<table>
+  <tr><th style="width:22%">问题</th><th>答案</th></tr>
+  <tr>
+    <td>米哈游主力技术栈是什么？</td>
+    <td><b>Unity + C#</b>。《原神》《崩坏3》《崩坏：星穹铁道》均为 Unity 开发，日常业务代码写 C#。</td>
+  </tr>
+  <tr>
+    <td>那还需要 C++ 吗？</td>
+    <td><b>需要，且是硬门槛。</b>三个原因：① 校招笔试 / 技术面八股普遍以 C++ 为通用语言；② 引擎、图形学、TA 岗必须精通 C++；③ 性能优化与底层理解绕不开它。</td>
+  </tr>
+  <tr>
+    <td>学习优先级怎么排？</td>
+    <td><b>C# 先深（对接 Unity、快速出作品）→ C++ 补底层（对接面试、引擎、图形学）。</b>顺序可以交叉，但主线是 C# + Unity。</td>
+  </tr>
+  <tr>
+    <td>只学 C++ 能进米哈游吗？</td>
+    <td>能，但只对<b>引擎 / 图形学 / 服务器</b>方向成立，且这些岗竞争最激烈、学历要求最高（多为硕士）。游戏客户端岗仍需 Unity + C# 项目经验。</td>
+  </tr>
+</table>
+
+<h2>一、米哈游岗位与技术栈对标</h2>
+
+<table>
+  <tr><th style="width:20%">方向</th><th style="width:30%">核心技术</th><th style="width:16%">竞争强度</th><th>学历现实</th></tr>
+  <tr><td><b>客户端 / Gameplay</b></td><td>Unity + C#（C++ 基础）</td><td>高</td><td>本科可投，985/211 优先</td></tr>
+  <tr><td><b>引擎开发</b></td><td>C++ / 图形学 / 引擎架构</td><td>极高</td><td>硕士优先，本科需极强项目</td></tr>
+  <tr><td><b>图形 / 渲染</b></td><td>C++ / 图形学 / 数学</td><td>极高</td><td>硕士为主</td></tr>
+  <tr><td><b>技术美术 TA</b></td><td>图形学 + Shader + 美术理解</td><td>高</td><td>本科可投，作品说话</td></tr>
+  <tr><td><b>服务器</b></td><td>C++ / Go / 分布式</td><td>高</td><td>本科可投</td></tr>
+</table>
+
+<div class="warn">
+  <b>⚠️ 现实提醒：</b>米哈游是国内游戏公司的天花板之一，简历筛选对学历敏感。如果你的本科院校不占优，<b>考研（图形学/计算机方向）是一条有效路径</b>，或者先通过中小厂/独立开发积累硬作品再跳。<b>建议大二结束前就明确：走校招硬冲，还是走考研补学历。</b>
+</div>
+
+<h2>二、优化后的四年路径</h2>
+
+<h3>大一：基础建立 + 最快出作品</h3>
+<table>
+  <tr><th style="width:20%">时间</th><th>任务</th></tr>
+  <tr><td>9–10 月</td><td><span class="tag tag-keep">保留</span><b>C 语言速通</b>（变量/函数/数组/指针，控制在 1–1.5 个月）——它是 C++ 的地基，也打计算机基础。同时熟悉 Visual Studio、Git。</td></tr>
+  <tr><td>11–12 月</td><td><b>C# 深入</b>（面向对象/类/继承/多态/集合/委托）+ <b>Unity 起步</b>。C# 是你未来四年的主武器，不要浅尝辄止。</td></tr>
+  <tr><td>寒假</td><td><b>第一个可玩的 Unity 游戏 Demo</b>（打地鼠 / 飞机大战级别）。这是建立正反馈的关键里程碑。</td></tr>
+  <tr><td>下学期</td><td>Unity 深入（角色控制 / UI / 动画 / 物理）+ <b>数据结构基础</b> + <b>开始刷题</b>（LeetCode easy，每周 3 题）+ <span class="tag tag-new">新增</span><b>接触竞赛</b>（蓝桥杯 / CSP 入门）+ 发布第一个游戏视频。</td></tr>
+  <tr><td>暑假</td><td>完成一个完整小游戏 + 运营账号 + <span class="tag tag-new">提前</span><b>开始接触 C++</b>（语法 + 编译链接 + 指针复习）。</td></tr>
+</table>
+
+<h3>大二：C++ 补强 + 算法 + 项目（最容易拉开差距的一年）</h3>
+<table>
+  <tr><th style="width:20%">板块</th><th>任务</th></tr>
+  <tr><td><b>C++ 系统学习</b></td><td><span class="tag tag-new">提前</span>语言特性 / 面向对象 / STL / 内存管理 / 智能指针 / 移动语义。目标：能独立写出结构清晰的 C++ 程序。</td></tr>
+  <tr><td><b>算法刷题</b></td><td><span class="tag tag-new">强化</span>LeetCode 累计 <b>200 题</b>（easy/medium 为主），保持每周 3–5 题。这是米哈游笔试的敲门砖。</td></tr>
+  <tr><td><b>Unity 进阶</b></td><td>性能优化、对象池、热更新、网络同步基础、编辑器工具。做一个 3D 项目。</td></tr>
+  <tr><td><b>数学</b></td><td><span class="tag tag-new">强化</span>线性代数（向量/矩阵/变换）、微积分。<b>不只为考试</b>——这是图形学的地基。</td></tr>
+  <tr><td><b>计算机基础<br>四大件</b></td><td><span class="tag tag-new">新增</span><b>操作系统 + 计算机网络 + 计算机组成原理</b>（数据结构大一下已开始）。这是<b>校招面试八股的核心</b>，详见第三节。</td></tr>
+  <tr><td><b>项目</b></td><td>2D + 3D 各一个，学习游戏系统设计（战斗 / 背包 / 存档 / 任务）。</td></tr>
+  <tr><td><b>UP 主</b></td><td>提升 PR/AE，学习脚本、选题、内容策划，保持稳定更新。</td></tr>
+</table>
+
+<h3>大三：方向聚焦 + 实习冲刺（决定性一年）</h3>
+<table>
+  <tr><th style="width:20%">时间</th><th>任务</th></tr>
+  <tr>
+    <td><b>大三上</b></td>
+    <td>
+      <ul>
+        <li><b>确定主方向</b>（客户端 / 引擎 / TA / 服务器），<b>停止平均用力</b></li>
+        <li><b>图形学</b>：GAMES101（计算机图形学入门）系统过完；如走引擎/TA，继续 GAMES202 / 《Real-Time Rendering》</li>
+        <li><b>刷题冲刺</b>：累计 <b>300 题以上</b>，开始接触 medium-hard</li>
+        <li><b>旗舰项目启动</b>：一个拿得出手的完整作品（详见第四节）</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td><b>大三下<br>（3–5 月）</b></td>
+    <td><span class="tag tag-new">关键修正</span><b>投递米哈游暑期实习</b>——这是进入米哈游最重要的通道，很多 offer 由实习转正产生。<b>不是大四才准备实习！</b>同时可投腾讯/网易/其他游戏公司作为练手。</td>
+  </tr>
+  <tr><td><b>大三暑假</b></td><td>实习（争取大厂）。实习期间积累真实项目经验，这是秋招简历上最重的一笔。</td></tr>
+</table>
+
+<h3>大四：秋招收割</h3>
+<table>
+  <tr><th style="width:20%">时间</th><th>任务</th></tr>
+  <tr><td>7–8 月</td><td><b>米哈游秋招提前批</b>（一般 7–8 月启动，越早投越好）+ 其它大厂提前批。</td></tr>
+  <tr><td>9–11 月</td><td>正式批：网申 → 笔试（算法）→ 技术面（C++/C#、操作系统、计网、数据结构、图形学、项目）→ HR 面。</td></tr>
+  <tr><td>贯穿</td><td>作品集打磨（重点讲旗舰项目）、八股复盘、面试模拟。</td></tr>
+  <tr><td>备选</td><td>若学历需要补强或不理想：<b>考研</b>（计算机/图形学方向），次年再战。</td></tr>
+</table>
+
+<h2>三、计算机基础四大件（必须补上）</h2>
+
+<div class="warn">
+  <b>⚠️ 这是原先路径最大的缺口。</b>无论走游戏客户端、引擎还是考研，<b>数据结构 / 操作系统 / 计算机网络 / 计算机组成原理</b>都是校招面试的必答题——<b>不会这些，笔试过了面试也会挂</b>。
+</div>
+
+<table>
+  <tr><th style="width:14%">科目</th><th style="width:26%">为什么重要</th><th style="width:26%">学什么</th><th>推荐资源 / 时间</th></tr>
+  <tr>
+    <td><b>数据结构</b></td>
+    <td>一切的地基；面试必考；算法刷题的前提</td>
+    <td>线性表、栈与队列、树、图、排序、查找、哈希</td>
+    <td>陈越《数据结构》MOOC（浙大）/ 王道<br><b>大一下 – 大二</b></td>
+  </tr>
+  <tr>
+    <td><b>操作系统</b></td>
+    <td>面试八股核心；引擎底层（内存 / 多线程）必备</td>
+    <td>进程与线程、内存管理、文件系统、并发同步、死锁</td>
+    <td>王道考研操作系统 / CSAPP<br><b>大二</b></td>
+  </tr>
+  <tr>
+    <td><b>计算机网络</b></td>
+    <td>面试八股核心；联机游戏、网络同步的基础</td>
+    <td>TCP/IP、HTTP、网络分层、三次握手四次挥手、拥塞控制</td>
+    <td>王道 / 谢希仁《计算机网络》<br><b>大二</b></td>
+  </tr>
+  <tr>
+    <td><b>计算机<br>组成原理</b></td>
+    <td>理解硬件与性能；做引擎 / 优化时的底层认知</td>
+    <td>CPU、指令系统、存储层次（缓存）、流水线、总线</td>
+    <td>王道 / CSAPP（深入理解计算机系统）<br><b>大二 – 大三</b></td>
+  </tr>
+</table>
+
+<div class="lead">
+  <b>学习原则</b>：这四门<b>不要只背八股，要动手写代码复现</b>（如手写线程池、实现简易 HTTP 服务器、模拟内存分配）。面试官最反感"只会背"的人。
+</div>
+
+<h2>四、竞赛（加分项，性价比高）</h2>
+
+<table>
+  <tr><th style="width:16%">竞赛</th><th style="width:12%">类型</th><th style="width:14%">难度</th><th>建议</th></tr>
+  <tr>
+    <td><b>蓝桥杯</b></td><td>个人</td><td>低 – 中</td>
+    <td><b>大一就能参加</b>，门槛最低，最适合起步。省一 / 国奖对简历有实在加分。</td>
+  </tr>
+  <tr>
+    <td><b>CSP（CCF）</b></td><td>个人</td><td>中 – 高</td>
+    <td>CCF 认证，含金量中上，成绩可写入简历，部分大厂岗位认可。</td>
+  </tr>
+  <tr>
+    <td><b>ACM / ICPC</b></td><td>团队</td><td>高</td>
+    <td>含金量最高，但需进校队、投入巨大。有区域赛奖牌 = 算法能力的硬证明。</td>
+  </tr>
+  <tr>
+    <td><b>天梯赛</b></td><td>团队</td><td>中</td>
+    <td>PAT 系列团队赛，适合有校队资源时参与。</td>
+  </tr>
+</table>
+
+<div class="lead">
+  <b>刷题平台</b>：<b>LeetCode</b>（面试向，主力）+ <b>洛谷</b>（竞赛向，配合蓝桥杯 / CSP）。
+</div>
+
+<div class="warn">
+  <b>优先级提醒</b>：<b>四大件 &gt; 竞赛</b>。竞赛是加分项，四大件是必答题。时间冲突时，先把四大件学扎实。
+</div>
+
+<h2>五、相对原始规划，改了什么（以及为什么）</h2>
+
+<table>
+  <tr><th style="width:26%">改动</th><th style="width:20%">原规划</th><th>原因</th></tr>
+  <tr>
+    <td><span class="tag tag-new">提前</span>C++ 学习时间</td>
+    <td>大二开始</td>
+    <td>米哈游笔试与技术面普遍考 C++，早接触能更早参与真实项目与刷题；大一暑假先打底，大二系统学。</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-new">强化</span>算法刷题</td>
+    <td>仅"学习算法"</td>
+    <td>米哈游笔试算法难度高。刷题量是硬指标：<b>大二 200 题 → 大三 300+ 题</b>，没有它连面试都进不去。</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-new">加强</span>图形学与数学</td>
+    <td>大三提了一句"Shader、优化"</td>
+    <td>米哈游引擎/TA 岗的命脉。线代 + 图形学（GAMES101 等）必须系统学，不能只当口号。</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-new">修正</span>实习时间线</td>
+    <td>大四才"准备实习"</td>
+    <td><b>这是原规划最大的硬伤。</b>大三下（3–5 月）就要投暑期实习，那是主要留用通道；大四才准备已经错过关键一战。</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-new">明确</span>旗舰项目要求</td>
+    <td>3–5 个完整作品</td>
+    <td>数量不如深度。面试官只看那一个"能打"的项目：完整系统 + 性能优化 + 真实玩家。</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-new">补充</span>学历路径决策</td>
+    <td>未提及</td>
+    <td>米哈游对学历敏感，需在大二结束前决定"校招硬冲"还是"考研补学历"。</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-new">补齐</span>计算机基础四大件</td>
+    <td>仅提"数据结构、数据库、计网"</td>
+    <td>原规划缺 <b>操作系统</b> 和 <b>计算机组成原理</b>，且没有系统的时间安排。这四门是<b>校招面试的必答题</b>，必须补齐。</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-new">新增</span>竞赛</td>
+    <td>完全未提</td>
+    <td>算法竞赛是算法能力的硬证明，也是简历筛选的加分项。<b>蓝桥杯</b>门槛低、大一即可参加，性价比最高。</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-keep">保留</span>四年递进框架与 UP 主线</td>
+    <td>—</td>
+    <td>原规划的整体节奏、技能优先级、UP 主运营和"持续产出作品"的理念是对的，保留。</td>
+  </tr>
+</table>
+
+<h2>六、什么算"能打"的旗舰项目</h2>
+
+<p>大四面试时，这一个项目比另外四个 demo 都重要。它至少要包含：</p>
+<ul>
+  <li><b>完整玩法闭环</b>：开始 → 游玩 → 胜负/结算 → 重开，不是零散的功能演示</li>
+  <li><b>完整系统</b>：至少 3 个（如战斗 / 背包 / 存档 / 任务 / UI / 音效）</li>
+  <li><b>性能优化痕迹</b>：对象池、批处理、Profiler 调优数据（<b>面试官很吃这一套</b>）</li>
+  <li><b>真实发布</b>：上架 itch.io / Steam，有玩家下载和反馈</li>
+  <li><b>能讲清楚</b>：架构怎么设计、遇到过什么坑、怎么解决的——这决定面试成败</li>
+</ul>
+
+<h2>七、关键里程碑一览</h2>
+
+<table>
+  <tr><th style="width:24%">节点</th><th>必须达成的状态</th></tr>
+  <tr><td>大一寒假</td><td>第一个可玩 Demo 跑起来</td></tr>
+  <tr><td>大一暑假</td><td>一个完整小游戏 + C++ 开始接触</td></tr>
+  <tr><td>大一下</td><td><b>数据结构入门 + 蓝桥杯 / CSP 参赛</b>（竞赛起步）</td></tr>
+  <tr><td>大二结束</td><td>C++ 熟练 + LeetCode 200 题 + <b>四大件过完</b> + 2–3 个项目</td></tr>
+  <tr><td>大三上结束</td><td>主方向确定 + 图形学入门 + 刷题 300+ + 旗舰项目成型</td></tr>
+  <tr><td><b>大三下（3–5 月）</b></td><td><b>投递米哈游暑期实习 ← 全程最重要的节点</b></td></tr>
+  <tr><td>大三暑假</td><td>拿到实习并做出成绩</td></tr>
+  <tr><td>大四上</td><td>秋招拿 offer</td></tr>
+</table>
+
+<h2>八、核心理念</h2>
+
+<div class="key">
+  <strong>① C# 主攻，C++ 必修</strong>——主武器和功底，别搞反。<br>
+  <strong>② 基础是入场券</strong>——四大件（数据结构 / 操作系统 / 计网 / 组成原理）不过关，笔试过了面试也会挂。<br>
+  <strong>③ 深度 &gt; 广度</strong>——大三必须收敛到一个方向，什么都学一点的人最容易被淘汰。<br>
+  <strong>④ 作品 + 实习 + 竞赛 &gt; 学历</strong>——学历是门槛，作品、实习与竞赛是决定性的那一票。<br>
+  <strong>⑤ 不要只学习工具，要持续产出作品</strong>——这是原规划里最好的一句话，保留。
+</div>
+
+<div class="foot">游戏开发四年学习路径 · 米哈游定向优化版（含四大件 + 竞赛补强）</div>
+
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>大一游戏开发 / UP主 全方位规划手册</title>
+<style>
+  @page {
+    size: A4;
+    margin: 16mm 15mm;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Microsoft YaHei", "PingFang SC", "Source Han Sans SC", sans-serif;
+    color: #26323f;
+    line-height: 1.75;
+    font-size: 13px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  h1 {
+    font-size: 24px;
+    color: #0e2a47;
+    text-align: center;
+    margin: 0 0 4px 0;
+    letter-spacing: 1px;
+  }
+  .subtitle {
+    text-align: center;
+    color: #5b7085;
+    font-size: 12px;
+    margin: 0 0 18px 0;
+    letter-spacing: 2px;
+  }
+  .rule {
+    height: 4px;
+    background: linear-gradient(90deg, #0e2a47, #2e6db4, #0e2a47);
+    border-radius: 2px;
+    margin: 0 0 20px 0;
+  }
+  h2 {
+    font-size: 16px;
+    color: #0e2a47;
+    border-left: 4px solid #2e6db4;
+    padding-left: 10px;
+    margin: 26px 0 10px 0;
+    page-break-after: avoid;
+  }
+  h3 {
+    font-size: 14px;
+    color: #16436e;
+    margin: 16px 0 6px 0;
+    page-break-after: avoid;
+  }
+  p { margin: 6px 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 12px;
+  }
+  th, td {
+    border: 1px solid #d4dde6;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: #0e2a47;
+    color: #ffffff;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  tr:nth-child(even) td { background: #f4f7fa; }
+  .qa {
+    margin: 8px 0;
+    padding: 10px 14px;
+    background: #f4f7fa;
+    border-radius: 6px;
+    border: 1px solid #e2e9f0;
+  }
+  .qa .q { font-weight: 700; color: #0e2a47; }
+  .qa .a { color: #3a4a59; margin-top: 2px; }
+  .note {
+    margin: 12px 0;
+    padding: 10px 14px;
+    background: #eef4fb;
+    border-left: 4px solid #2e6db4;
+    border-radius: 0 6px 6px 0;
+  }
+  .highlight {
+    margin: 14px 0;
+    padding: 14px 18px;
+    background: #0e2a47;
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 13.5px;
+    line-height: 1.8;
+  }
+  .highlight strong { color: #ffd166; }
+  .tag {
+    display: inline-block;
+    background: #2e6db4;
+    color: #fff;
+    border-radius: 3px;
+    padding: 0 6px;
+    font-size: 11px;
+    margin-right: 6px;
+  }
+  .foot {
+    text-align: center;
+    color: #7c8b99;
+    font-size: 11px;
+    margin-top: 24px;
+  }
+  ul { margin: 4px 0 4px 0; padding-left: 20px; }
+  li { margin: 3px 0; }
+</style>
+</head>
+<body>
+
+<h1>大一游戏开发 / UP主 全方位规划手册</h1>
+<div class="subtitle">2026 整合版 · 学习路线 × 创作路线 × AI 用法</div>
+<div class="rule"></div>
+
+<h2>一、关键问题快问快答</h2>
+
+<div class="qa">
+  <div class="q">1. C# 算 C 语言吗？</div>
+  <div class="a">不算。C# 是面向对象的高级语言（Unity 的主力语言），C 是底层语言。二者逻辑相通，但语法和用途不同。大一专注学好当前的 C# 即可，不用纠结。</div>
+</div>
+
+<div class="qa">
+  <div class="q">2. 什么时候学 C++？</div>
+  <div class="a">建议 <b>大二</b>，先在大一用 C# 于 Unity 做出成品再学更轻松。<b>但先定引擎再定力度</b>：目标是 Unreal / 3A 可适当提前；铁了心走 Unity 独立开发则 C++ 优先级放低，别为学而学。</div>
+</div>
+
+<div class="qa">
+  <div class="q">3. 考研必需吗？</div>
+  <div class="a"><b>游戏开发方向：非必需</b>，作品集 &gt; 学历。<b>但注意</b>：顶尖大厂的引擎 / 图形学岗位仍吃学历，若有此志向，读相关方向研究生是加分项。大二前不必纠结，先做作品。</div>
+</div>
+
+<div class="qa">
+  <div class="q">4. 四六级什么时候考？</div>
+  <div class="a">大一上学期（12 月）过四级，大一下学期（6 月）过六级。越早越好——大厂实习、英文文档、官方教程都靠它。</div>
+</div>
+
+<h2>二、大一全年行动路线图</h2>
+
+<table>
+  <tr>
+    <th style="width:16%">时间段</th>
+    <th style="width:26%">核心目标</th>
+    <th>具体行动</th>
+  </tr>
+  <tr>
+    <td><b>大一上</b><br>9–1 月</td>
+    <td>攻克 C# 基础<br>搞定英语四级<br>适应大学生活</td>
+    <td><b>技术</b>：学完 C# 基础语法（变量 / 循环 / 类），写出"猜数字"等控制台程序。<br><b>创作</b>：下载 Unity 和 PR，跑通官方 Hello World 案例。<br><b>学业</b>：保证高数、线性代数不挂科（3D 数学的底线）。</td>
+  </tr>
+  <tr>
+    <td><b>大一寒假</b><br>1–2 月</td>
+    <td>做出第一个小游戏<br>产出第一个视频</td>
+    <td><b>技术</b>：用 Unity 复刻《打地鼠》或《飞机大战》，打包成 exe。<br><b>创作</b>：用 PR 剪一个几分钟的"寒假生活 / 游戏试玩"视频，发布到 B 站 / 抖音走完整流程。</td>
+  </tr>
+  <tr>
+    <td><b>大一下</b><br>3–6 月</td>
+    <td>深入 Unity 开发<br>备战六级<br>拓展剪辑</td>
+    <td><b>技术</b>：学习 Unity 物理 / 动画 / UI 模块，做 2D 平台跳跃 Demo，开始接触数据结构与算法。<br><b>创作</b>：学 AE 做动态片头，给游戏 Demo 做"预告片"。<br><b>英语</b>：6 月六级考试，单词结合游戏英文视频积累。</td>
+  </tr>
+  <tr>
+    <td><b>大一暑假</b><br>7–8 月</td>
+    <td>完成代表作<br>运营账号<br>明确重心</td>
+    <td><b>技术</b>：独立完成较完整的游戏小 Demo（如带 AI 的俯视角射击），发布到 itch.io。<br><b>创作</b>：保持稳定更新，用 OBS 录带解说实况。<br><b>决策</b>：感受自己更喜欢"写代码"还是"做视频"，大二前定下主方向。</td>
+  </tr>
+</table>
+
+<h2>三、技术线补强（重点）</h2>
+
+<h3>3.1 数学：别只满足"不挂科"</h3>
+<p>线性代数里的<b>向量（点乘、叉乘）、矩阵、坐标系变换</b>是游戏开发的真正硬通货——它们直接决定你能否看懂相机、光照、Shader。<b>底线是不挂科，但线代这三块要额外吃透</b>，配合 Unity 的 Transform / 旋转一起学，抽象概念立刻变具体。</p>
+
+<h3>3.2 数据结构与算法</h3>
+<p>大厂校招笔试（暑期实习）考的就是算法。建议大一下把《算法图解》过一遍，然后 LeetCode 保持<b>每周 3–5 题</b>的手感。不用卷 hard，easy / medium 稳定能做，就够敲门了。</p>
+
+<h3>3.3 完成闭环：用"做"驱动"学"</h3>
+<p>游戏开发最稀缺的能力不是技术，而是<b>"完成并发布"的闭环</b>。很多人卡在"学"上，永远做不出成品。别总觉得"C# 还没学完""Unity 还不会"就不敢动手——先定一个极小目标（比如"做一个球会滚的关卡"），缺什么学什么，学完立刻用上。</p>
+
+<h2>四、UP主 线补强</h2>
+
+<h3>4.1 定位：devlog（开发日志）是你最独特的选题</h3>
+<p>把"从零做游戏"的过程直接拍成视频——<b>学习过程本身就是内容</b>，创作不额外占用开发时间，还能沉淀一批看着你成长的粉丝。B 站游戏区 devlog 赛道现在很好，别浪费这个天然优势。</p>
+
+<h3>4.2 平台与节奏</h3>
+<ul>
+  <li><b>主阵地 B 站</b>，抖音 / 小红书做短视频分发引流。</li>
+  <li>保持<b>稳定更新</b>（比偶尔爆款更重要），用 OBS 录带解说的实况。</li>
+  <li>早期先跑通"选题 → 录制 → 剪辑 → 发布 → 看数据"的完整流程，再谈涨粉。</li>
+</ul>
+
+<h2>五、AI 在你学习 / 创作 / 工作中的用法</h2>
+
+<table>
+  <tr>
+    <th style="width:18%">角色</th>
+    <th style="width:26%">作用</th>
+    <th>实操举例</th>
+  </tr>
+  <tr>
+    <td><b>全能助教</b></td>
+    <td>即时答疑、定制计划</td>
+    <td>把 C# 报错贴给 AI；让它用"玩游戏"的比喻解释"面向对象"；让 AI 定制两周练习计划。</td>
+  </tr>
+  <tr>
+    <td><b>超级外挂</b></td>
+    <td>生成代码、处理素材</td>
+    <td>让 AI 写"Unity 角色移动脚本"；用 AI 工具自动粗剪视频、生成字幕。</td>
+  </tr>
+  <tr>
+    <td><b>创意副手</b></td>
+    <td>头脑风暴、优化内容</td>
+    <td>让 AI 想 5 个"猫主角"的游戏创意；剪完视频问 AI"哪个片段最无聊？"</td>
+  </tr>
+</table>
+
+<div class="note"><b>核心原则</b>：AI 是杠杆，你的基础是支点。大一<b>必须亲自手敲基础代码</b>，理解原理后再用 AI 提效，并永远保持对 AI 结果的批判性审视。</div>
+
+<h2>六、写在最后</h2>
+
+<div class="highlight">
+  <strong>核心建议：用"做"驱动"学"，而不是"学完再做"。</strong><br>
+  这份规划照做就能跑赢很多人——大二时你手里会有一个 itch.io 作品、一个持续更新的账号、扎实的 C# / Unity 基础。别追求完美，先跑通第一个闭环，剩下的在做的过程中自然长出来。
+</div>
+
+<div class="foot">大一游戏开发 / UP主 全方位规划手册 · 2026 整合版</div>
+
+</body>
+</html>

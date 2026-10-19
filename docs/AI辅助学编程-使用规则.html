@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>AI 辅助学编程 · 使用规则（大一版）</title>
+<style>
+  @page { size: A4; margin: 13mm 12mm; }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: "Microsoft YaHei", "PingFang SC", "Source Han Sans SC", sans-serif;
+    color: #22303d; line-height: 1.6; font-size: 11.5px;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  h1 { font-size: 20px; color: #0b2545; text-align: center; margin: 0 0 3px 0; }
+  .subtitle { text-align: center; color: #5b7085; font-size: 10.5px; margin: 0 0 5px 0; letter-spacing: 1px; }
+  .rule { height: 4px; background: linear-gradient(90deg,#0b2545,#2e6db4,#0b2545); border-radius: 2px; margin: 0 0 12px 0; }
+  h2 { font-size: 14px; color: #0b2545; border-left: 4px solid #2e6db4; padding-left: 8px; margin: 15px 0 6px 0; page-break-after: avoid; }
+  p { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 10.5px; }
+  th, td { border: 1px solid #d4dde6; padding: 4px 6px; text-align: left; vertical-align: top; }
+  th { background: #0b2545; color: #fff; font-weight: 600; }
+  tr:nth-child(even) td { background: #f4f7fa; }
+  .lead { margin: 8px 0; padding: 8px 12px; background: #eef4fb; border-left: 4px solid #2e6db4; border-radius: 0 6px 6px 0; }
+  .warn { margin: 8px 0; padding: 8px 12px; background: #fff6e6; border-left: 4px solid #e8a33d; border-radius: 0 6px 6px 0; }
+  .key { margin: 10px 0; padding: 10px 14px; background: #0b2545; color: #fff; border-radius: 8px; line-height: 1.75; }
+  .key strong { color: #ffd166; }
+  .milestone { background: #e8f5ee !important; font-weight: 600; }
+  .exam { background: #fdecea !important; font-weight: 600; }
+  .yes { color: #1e7a45; background: #eaf7ef; }
+  .no { color: #b3261e; background: #fdecea; }
+  .mid { color: #8a5a00; background: #fff6e6; }
+  .wk { font-weight: 600; color: #0b2545; white-space: nowrap; }
+  .dt { white-space: nowrap; font-size: 10px; }
+  .small { font-size: 10px; color: #5b7085; }
+  .code { font-family: Consolas, "Courier New", monospace; background: #f1f4f8; padding: 0 3px; border-radius: 3px; }
+  .bad { color: #b3261e; font-weight: 600; }
+  .good { color: #1e7a45; font-weight: 600; }
+  .foot { text-align: center; color: #7c8b99; font-size: 9.5px; margin-top: 14px; }
+  ul { margin: 3px 0; padding-left: 16px; }
+  li { margin: 2px 0; }
+</style>
+</head>
+<body>
+
+<h1>AI 辅助学编程 · 使用规则</h1>
+<div class="subtitle">大连东软信息学院 · 软件工程大一 · 2026.10 制定</div>
+<div class="rule"></div>
+
+<div class="key">
+  <strong>一句话结论：</strong>AI 不是禁品，是<strong>处方药</strong>——决定它是药还是毒的，不是"用不用"，而是<strong>剂量和时机</strong>。<br>
+  <strong>唯一的分界线：</strong>关掉 AI 之后，你还能不能写出代码、调出 bug、交上作业？<br>
+  <strong>想直接要答案？可以。</strong>但请满足本页第①节的三个前提——那三个前提就是把"抄答案"变成"学东西"的全部差别。
+</div>
+
+<h2>① 关于"能不能直接要答案"——可以，但要满足三个前提</h2>
+
+<div class="lead">
+  <b>看懂别人的代码本身就是一种学习（阅读优秀代码是正经方法）。</b>真正的问题不是"看了答案"，而是<b>答案出现得太早</b>，以及<b>看懂之后你没有生成过</b>。
+  "我能看懂" ≠ "我能写出来"——这是两套不同的脑回路。
+</div>
+
+<table>
+  <tr><th style="width:12%">前提</th><th style="width:46%">具体做法</th><th>为什么</th></tr>
+  <tr>
+    <td class="wk">时机</td>
+    <td>先自己挣扎 <b>20–30 分钟</b>，并且能一句话说清"我卡在哪"——是<b>语法不会</b>、<b>逻辑想不出</b>、还是<b>报错看不懂</b>？</td>
+    <td>带着具体卡点看答案，大脑是在"补洞"；一上来就要答案，大脑是在"抄写"</td>
+  </tr>
+  <tr>
+    <td class="wk">动作</td>
+    <td>拿到答案后<b>关掉它，从空白重写一遍</b>（不许复制粘贴），并在注释里写下"我原来错在哪"</td>
+    <td>生成效应：自己写一遍 &gt; 读十遍</td>
+  </tr>
+  <tr>
+    <td class="wk">验证</td>
+    <td><b>第 3 天</b>不看答案再写一遍 + 做一个<b>变体</b>（换输入 / 加条件 / 换数据结构）</td>
+    <td>间隔重复 + 迁移，这一步过了才算真的进脑子</td>
+  </tr>
+</table>
+
+<h3>三问检验（看完 AI 的代码后，立刻自测）</h3>
+<table>
+  <tr><th style="width:6%">#</th><th>问题</th><th style="width:26%">做不到说明什么</th></tr>
+  <tr><td>1</td><td>关掉它，我能在白纸 / 空白文件里重写出来吗？</td><td rowspan="3" class="no">这次看答案只是"消费"，不是学习——<b>请回到前提②重做</b></td></tr>
+  <tr><td>2</td><td>每一行为什么这么写？换成别的写法（比如用 if 代替三元）会怎样？</td></tr>
+  <tr><td>3</td><td>改一个需求（多输入一个数 / 加一个判断 / 换成集合）我还能写吗？</td></tr>
+</table>
+<p class="small">三项都能做到 → 这次"要答案"是有效学习（等价于看题解）；任何一项做不到 → 那次只是消费。三问检验也是我给答案时的默认附赠。</p>
+
+<h2>② "我能看懂你的代码"——看懂属于第几层？</h2>
+
+<table>
+  <tr><th style="width:8%">层次</th><th style="width:22%">能力</th><th>表现</th><th style="width:16%">算不算学会</th></tr>
+  <tr><td class="wk">L1</td><td>读懂</td><td>能看懂别人写的代码在干什么（<b>"我能看懂"通常停在这一层</b>）</td><td class="no">不算</td></tr>
+  <tr><td class="wk">L2</td><td>解释</td><td>能说清为什么这么写、把哪一行改掉会坏掉</td><td class="mid">刚起步</td></tr>
+  <tr class="milestone"><td class="wk">L3</td><td>重现</td><td><b>关掉答案，从空白写出来，一次跑通</b></td><td class="yes">✔ 算学会了</td></tr>
+  <tr><td class="wk">L4</td><td>变体</td><td>改需求、换结构、优化写法都能自己完成</td><td class="yes">✔ 牢固</td></tr>
+  <tr><td class="wk">L5</td><td>迁移</td><td>在新问题上<b>主动</b>想到用这个套路</td><td class="yes">✔ 真本事</td></tr>
+</table>
+
+<div class="warn">
+  <b>注意一个骗局：</b>读 AI 代码时，大脑在做"<b>确认</b>"（这条我看得懂），而独立写代码时大脑在做"<b>构造</b>"（从零搭出来）。
+  确认比构造容易得多——所以"看完觉得很简单"是假象，就像看别人打游戏和自己打。
+  <b>把 L1 变成 L3，那一次看答案才真的赚到。</b>
+</div>
+
+<h2>③ 按作业类型决定"能不能要答案"</h2>
+
+<table>
+  <tr><th style="width:26%">作业类型</th><th style="width:16%">能不能要答案</th><th>怎么做</th></tr>
+  <tr>
+    <td><b>计分作业 / 学校 OJ / 期末考</b><br><span class="small">老师能看提交记录、考试是手写卷</span></td>
+    <td class="no">不要整段要了再交</td>
+    <td>可以要"看懂"，但必须<b>自己重写一遍、用自己的写法提交</b>。整段 AI 代码提交 = 学术诚信风险 + 老师一眼看得出 + 考试立刻露馅（你作业里那个多空格判错就是例子）</td>
+  </tr>
+  <tr>
+    <td><b>自学练习</b><br><span class="small">黑马课后作业、洛谷、PTA 非计分题</span></td>
+    <td class="yes">随便要</td>
+    <td>重点不在"要不要"，而在"<b>能不能讲清 + 能不能重写</b>"。用第①节的三个前提走一遍即可</td>
+  </tr>
+  <tr>
+    <td><b>环境 / 工具 / 报错 / 配置</b><br><span class="small">JDK 装不上、IDEA 报错、Git 不会用</span></td>
+    <td class="yes">直接要答案</td>
+    <td><b>零心理负担</b>——这不是学习内容，是噪音。把时间省下来写代码</td>
+  </tr>
+</table>
+
+<h2>④ 三条线：红线 / 黄线 / 绿线</h2>
+
+<table>
+  <tr><th style="width:10%">线</th><th style="width:38%">行为</th><th>说明</th></tr>
+  <tr><td class="no"><b>红线</b></td><td>① 计分作业 / OJ 直接让 AI 写完提交<br>② 语法期（大一上）开全自动补全写练习<br>③ 报错第一反应是贴给 AI，从不自己读报错</td><td>分别毁掉：诚信与真实水平、肌肉记忆、<b>debug 能力</b>（工程师的核心能力）</td></tr>
+  <tr><td class="mid"><b>黄线</b></td><td>① 让 AI 生成完整代码，但你能逐行讲清楚<br>② 大一下起用 AI 写样板代码（CRUD、配置、界面布局）</td><td>可以，但必须付出"讲清楚 + 重写一遍"的代价；讲不出来就删掉自己重写</td></tr>
+  <tr><td class="yes"><b>绿线</b></td><td>① 概念讲解器（"用大一学生的话解释多态"）<br>② 报错翻译器（要方向，不要答案）<br>③ 代码评审（"先说问题，别直接给我重写版"）<br>④ 出题 / 生成变体（"给我 3 道变体题，先别给答案"）<br>⑤ 苏格拉底提问者（"每次只问我一个问题"）<br>⑥ 最小可运行示例</td><td>几乎无副作用，越早用越好。<b>这六条是你提问的推荐姿势</b></td></tr>
+</table>
+
+<h2>⑤ 按阶段：AI 该扮演什么角色</h2>
+
+<table>
+  <tr><th style="width:16%">阶段</th><th style="width:34%">AI 的角色</th><th>插件设置</th></tr>
+  <tr><td><b>大一上</b><br><span class="small">现在：语法 / 数组 / 方法</span></td><td>讲解 + 报错翻译 + 出题</td><td><b>关掉 inline 自动补全</b>（或改成手动 Tab 触发）；练习代码 100% 自己写</td></tr>
+  <tr><td>大一下<br><span class="small">集合 / IO / 项目</span></td><td>code reviewer + 样板代码工人</td><td>补全可开；<b>核心逻辑自己写</b></td></tr>
+  <tr><td>大二</td><td>pair programmer</td><td>全面使用；架构决策自己定</td></tr>
+  <tr><td>大三+/工作</td><td>生产力标配</td><td>不用反而慢</td></tr>
+</table>
+
+<h2>⑥ 六条使用契约（贴在显示器边上）</h2>
+
+<div class="key">
+  <strong>① 提问必带三件套：</strong>我的代码 + 我的思路 + 完整报错。只问"这题怎么做"是最低效的用法。<br>
+  <strong>② 默认要"解释"不要"代码"：</strong>明确说"先别给完整代码，给我思路"。<br>
+  <strong>③ 30 分钟规则：</strong>卡住 30 分钟再问（比"立刻问"慢，比"永远不问"快）。<br>
+  <strong>④ 留下来的每一行都要能解释：</strong>讲不出来 = 删掉重写。这一条能挡掉 90% 的伤害。<br>
+  <strong>⑤ 每周一次"裸写日"：</strong>关 AI、关文档、关视频，从空白文件写一段完整程序。<br>
+  <strong>⑥ 定期模拟无 AI 场景：</strong>期末手写卷、面试白板、实习笔试——这些场景 AI 一点忙都帮不上。
+</div>
+
+<h2>⑦ 四个提问话术模板（照抄就能用）</h2>
+
+<table>
+  <tr><th style="width:50%">❌ 低效 / 有害</th><th>✅ 高效 / 安全</th></tr>
+  <tr>
+    <td class="bad">"帮我写一下这道题。"</td>
+    <td class="good">"这道题我写到这卡住了【贴代码 + 报错】，我怀疑是 XX 问题，下一步该往哪想？<b>先别给完整代码。</b>"</td>
+  </tr>
+  <tr>
+    <td class="bad">"这段代码什么意思？"（贴一大段）</td>
+    <td class="good">"我写完了但感觉绕。<b>先说问题</b>，再给我一个更精简的版本，我自己重写一遍。"</td>
+  </tr>
+  <tr>
+    <td class="bad">"为什么我的代码报错？"（不贴报错）</td>
+    <td class="good">"第 3 行为什么要用 StringBuilder？直接 <span class="code">+</span> 拼接会怎样？"</td>
+  </tr>
+  <tr>
+    <td class="bad">"给我一份能过的答案。"</td>
+    <td class="good">"给我完整答案，但<b>先只给思路框架</b>，我自己写，写完再对照。"</td>
+  </tr>
+</table>
+
+<h2>⑧ AI 的诚实清单（这些话它对你说不出口，我替它说）</h2>
+
+<table>
+  <tr><th style="width:30%">局限</th><th>对你的影响 / 对策</th></tr>
+  <tr><td>会<b>自信地给出错代码</b>（边界条件、并发、API 版本最容易翻车）</td><td>任何代码都要自己跑一遍、测边界值（空值、0、最大、负数）</td></tr>
+  <tr><td>会给你<b>超纲写法</b>（Stream、正则、递归、lambda）</td><td>大一阶段看不懂的写法一律要求"换成我学过的语法"；OJ 上还可能被判超时</td></tr>
+  <tr><td>倾向于<b>顺着你说</b>（你问"我这样写对吧"，它可能答"基本可以"）</td><td>别问"对不对"，问"<b>这里有哪三种可能出错的地方</b>"</td></tr>
+  <tr><td>知识有<b>截止时间</b>，新版 API 会过时</td><td>关键 API 以官方文档 / IDE 提示为准</td></tr>
+  <tr><td>看不到你的<b>完整上下文</b>（老师要求、评分标准、课程进度）</td><td>提问时把要求贴给它：题目原文、老师的提交要求、你学到第几章</td></tr>
+</table>
+
+<h2>⑨ 每周自检（30 秒）</h2>
+
+<div class="lead">
+  <b>"如果 AI 明天全部消失一周，我还能不能写出代码、调出 bug、交上作业？"</b><br>
+  能 → 你在用它<b>加速</b>；不能 → 你在用它<b>替代自己</b>，而这个差距会在大二（学校考试、面试白板、实习笔试）一次性暴露。
+</div>
+
+<p class="small">
+为什么这样定规矩：学习编程依赖"合意困难"（检索、试错、调试），而 AI 直接给答案会造成<b>认知卸载</b>，短期效率上升、长期技能留存下降。
+相关讨论见：<a href="https://zenodo.org/records/18470063">The AI Skill Development Framework: From Cognitive Offloading to Skill Retention</a>、
+<a href="https://dl.acm.org/doi/10.1145/3641555.3705175">SIGCSE TS 2025：Evaluating GenAI's Effectiveness for Students with Varied Programming Backgrounds</a>、
+<a href="https://zenodo.org/records/22873028">The Silent Erosion: Vibe Coding and the Decline of Programming Literacy</a>。
+</p>
+
+<div class="foot">AI 辅助学编程 · 使用规则（大一版）· 2026.10.4 制定 · 配合《黑马 Java 大一学习路径》使用</div>
+
+</body>
+</html>
